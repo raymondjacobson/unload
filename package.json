@@ -1,0 +1,11 @@
+{
+  "name": "unload",
+  "description": "hassle-free, extensible multi access point service for waste disposal, rivcodes summer 2014",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*"
+  }
+}
