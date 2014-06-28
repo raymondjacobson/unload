@@ -1,6 +1,8 @@
+var get_locations = require('../lib/get_locations.js');
+
 // route for incoming ios msg service
 exports.in_ios = function(req, res) {
-  res.send('in ios');
+  res.send(get_locations.get_locations('asdf'));
 }
 
 
