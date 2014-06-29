@@ -1,5 +1,6 @@
 var unirest = require('unirest');
 var location_methods = require('../lib/location_methods.js');
+var language = require('../lib/language.js');
 
 // route for incoming ios msg service
 exports.in_ios = function(req, res) {
@@ -54,5 +55,10 @@ exports.gmaps = function(req, res) {
 exports.dconverter = function(req, res) {
   var loc = req.query['loc'];
   var item = req.query['item'];
-  console.log(loc, item);
+  var item_type = language.typify(item);
+  console.log(item_type);
+  // response_location = location_methods.get_locations(
+  //   location_methods.get_info_sheet(),
+  //   location_methods.get_greeenwaste_recyclers())
+  res.send('sdf');
 }

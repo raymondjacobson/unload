@@ -74,7 +74,8 @@ var createMap = function(long, lat){
             var search_term = $('input[type=text').val();
             console.log(search_term);
             var ORIGIN = '(' + lat + ',' + long + ')';
-            $.get('/dconverter').done(function(data){
+            $.get('/dconverter?&item='+search_term+'&loc='+ORIGIN).done(function(data){
+              console.log(data);
               $('iframe').remove();
               var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
               var DESTINATION = '(34.1767, -118.3105)';
@@ -86,7 +87,6 @@ var createMap = function(long, lat){
               $('.map-wrapper').append('<div class="instr"><h1>Step-by-step</h1></div>');
               $.get('/gmaps?origin='+ORIGIN+'&dest='+DESTINATION).done(function(data){
                 var steps = data.body['routes'][0]['legs'][0]['steps'];
-                console.log(steps);
                 for (var i=0; i<steps.length; ++i){
                   $('.instr').append("<p>"+steps[i]['html_instructions']+"</p>");
                 }

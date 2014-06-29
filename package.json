@@ -9,6 +9,7 @@
     "nib": "*",
     "unirest": "*",
     "jquery": "*",
-    "twilio": "*"
+    "twilio": "*",
+    "alchemy-api": "*"
   }
 }
