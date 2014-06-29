@@ -26,7 +26,7 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/assets'))
 
 app.get('/in/ios', routes.in_ios);
-app.get('/in/twil', routes.in_twil);
+app.post('/in/twil', routes.in_twil);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
