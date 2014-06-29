@@ -25,9 +25,11 @@ body {
   background: #456855;
   font-family: 'Lato', Helvetica, sans-serif;
 }
-ul,
-ol {
+ul {
   list-style: none;
+}
+ol li {
+  margin: 5px 0px;
 }
 table {
   text-align: left;
@@ -41,6 +43,7 @@ header {
 }
 footer {
   height: 200px;
+  margin-top: 100px;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -71,12 +74,14 @@ a,
 input {
   color: #bbb;
 }
-h1 {
+h1,
+h1 a {
   letter-spacing: 5px;
   font-weight: 600;
   font-size: 25px;
   margin: 0px 0px 0px 0px;
   text-transform: uppercase;
+  text-decoration: none;
 }
 h2,
 label {
@@ -146,7 +151,7 @@ input:focus:-ms-input-placeholder {
   outline: none;
 }
 input[type=text] {
-  width: 75%;
+  width: 78%;
   margin-right: 2%;
 }
 input[type=text]:focus {
@@ -155,7 +160,7 @@ input[type=text]:focus {
   background: none;
 }
 input[type=submit] {
-  width: 17%;
+  width: 20%;
   cursor: pointer;
 }
 input[type=submit]:hover,
@@ -168,6 +173,13 @@ input[type=submit]:focus {
   height: 500px;
   width: 100%;
 }
+.map-wrapper .loader {
+  margin: 0 auto;
+  text-align: center;
+}
+.map-wrapper .loader img {
+  margin-top: 150px;
+}
 #map {
   height: 500px;
 }
@@ -176,8 +188,9 @@ input[type=submit]:focus {
   color: #bbb;
 }
 .instr div {
+  margin: 5px 0px;
   text-transform: uppercase;
   font-weight: bold;
   color: #fdfdfd;
-  font-wize: 15px;
+  font-size: 16px !important;
 }

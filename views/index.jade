@@ -2,10 +2,11 @@ extend layout
 block content
   div(class='container')
     div(class='row')
-      div(class='column twelve')
-        input(class='search' placeholder='Getting rid of something? Try me. e.g. Microwave, Grass, Glass' type='text')
-        input(class='search' value='search' type='submit')
+      input(class='search' placeholder='Getting rid of something? Try me. e.g. Microwave, Branches, Roofing' type='text')
+      input(class='search' value='search' type='submit')
     div(class='row map-wrapper')
+      div(class='loader')
+        img(src='/img/loader.gif')
       div(data-dojo-type='dijit/layout/BorderContainer', data-dojo-props='design:\'headline\', gutters:false', style='width: 100%; height: 100%;')
         div(data-dojo-type='dijit/layout/ContentPane', data-dojo-props='region:\'right\'', style='width: 250px;')
           #dir

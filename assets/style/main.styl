@@ -36,8 +36,11 @@ html, body
   background FOREST_GREEN
   font-family 'Lato', Helvetica, sans-serif
 
-ul, ol
+ul
   list-style none
+
+ol li
+  margin 5px 0px
 
 table
   text-align left
@@ -51,6 +54,7 @@ header
 
 footer
   height 200px
+  margin-top 100px
   position relative
   bottom 0
   width 100%
@@ -73,12 +77,13 @@ div.container
 h1, h2, h3, h4, h5, h6, p, a, input
   color LIGHT_GRAY
 
-h1
+h1, h1 a
   letter-spacing 5px
   font-weight 600
   font-size 25px
   margin 0px 0px 0px 0px
   text-transform uppercase
+  text-decoration none
 
 h2, label
   margin 10px 0 40px 0
@@ -140,7 +145,7 @@ input:focus:-ms-input-placeholder
     outline none
 
 input[type=text]
-  width 75%
+  width 78%
   margin-right 2%
   &:focus
     color LIGHT_PINK
@@ -148,7 +153,7 @@ input[type=text]
     background none
 
 input[type=submit]
-  width 17%
+  width 20%
   cursor pointer
   &:hover, &:focus
     color LIGHT_PINK
@@ -162,6 +167,11 @@ input[type=submit]
   iframe
     height 500px
     width 100%
+  .loader
+    margin 0 auto
+    text-align center
+    img
+      margin-top 150px
 
 #map
   height 500px
@@ -170,8 +180,9 @@ input[type=submit]
   margin-top 20px
   color LIGHT_GRAY
   div
+    margin 5px 0px
     text-transform uppercase
     font-weight bold
     color OFF_WHITE
-    font-wize 15px
+    font-size 16px !important
 
