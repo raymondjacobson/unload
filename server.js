@@ -27,7 +27,7 @@ app.use(express.static(__dirname + '/assets'))
 
 // handles
 app.get('/in/ios', routes.in_ios);
-app.get('/in/twil', routes.in_twil);
+app.post('/in/twil', routes.in_twil);
 
 app.get('/gmaps', routes.gmaps);
 
