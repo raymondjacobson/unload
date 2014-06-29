@@ -58,10 +58,13 @@ exports.gmaps = function(req, res) {
 exports.dconverter = function(req, res) {
   var loc = req.query['loc'];
   var item = req.query['item'];
-  var item_type = language.typify(item);
+  var item_type = item;
   console.log(item_type);
-  // response_location = location_methods.get_locations(
-  //   location_methods.get_info_sheet(),
-  //   location_methods.get_greeenwaste_recyclers())
-  res.send('sdf');
+  var current_location = [{
+    "latitude": "33.948769",
+     "longitude": "-117.380940"}];  
+  response_location = location_methods.get_locations(
+    'metal',
+    location_methods.get_info_sheet,
+    location_methods.get_greeenwaste_recyclers, current_location, res)
 }

@@ -74,7 +74,11 @@ var createMap = function(long, lat){
             var search_term = $('input[type=text').val();
             console.log(search_term);
             var ORIGIN = '(' + lat + ',' + long + ')';
-            $.get('/dconverter?&item='+search_term+'&loc='+ORIGIN).done(function(data){
+            var JSON_ORIGIN = [{
+              'latitude': lat,
+              'longitude': long
+            }];
+            $.get('/dconverter?&item='+search_term+'&loc='+JSON.stringify(JSON_ORIGIN)).done(function(data){
               console.log(data);
               $('iframe').remove();
               var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
