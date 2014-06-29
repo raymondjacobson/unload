@@ -13,15 +13,16 @@ exports.in_ios = function(req, res) {
 
 // route for incoming twilio msg service
 exports.in_twil = function(req, res) {
-  var current_location = [{
-    "latitude": "33.948769",
-     "longitude": "-117.380940"}]; 
-	console.log(req.body);
-	console.log(req.body['Body']);
+ //  console.log(current_location);
+	// console.log(req.body);
+	// console.log(req.body['Body']);
+  language.breakup(req.body, twil_helper);
+}
+var twil_helper = function(from, item, current_location){
   response_location = location_methods.get_locations(
-    'metal',
+    item,
     location_methods.get_info_sheet,
-    location_methods.get_greeenwaste_recyclers, current_location, req.body['From']);
+    location_methods.get_greeenwaste_recyclers, current_location, from);
 }
 
 
@@ -45,17 +46,16 @@ exports.gmaps = function(req, res) {
 
 // gets the incoming loc & item and returns closest loc
 exports.dconverter = function(req, res) {
-  var loc = req.query['loc'];
-  console.log(loc);
+  var lat = req.query['lat'];
+  var long = req.query['long'];
   var item = req.query['item'];
-  var item_type = item;
-  console.log(item_type);
+  var item_type = language.translater(item);
   var current_location = [{
-    "latitude": "33.948769",
-     "longitude": "-117.380940"}];  
+    "latitude": lat,
+     "longitude": long}];  
   console.log(current_location);
   response_location = location_methods.get_locations(
-    'metal',
+    item_type,
     location_methods.get_info_sheet,
     location_methods.get_greeenwaste_recyclers, current_location, res)
 }
