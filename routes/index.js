@@ -4,7 +4,10 @@ var language = require('../lib/language.js');
 
 // route for incoming ios msg service
 exports.in_ios = function(req, res) {
-  res.send(location_methods.get_locations('wood', location_methods.get_info_sheet, location_methods.get_greeenwaste_recyclers));
+	var current_location = [{
+		"latitude": "33.948769",
+		 "longitude": "-117.380940"}];	
+ 	location_methods.get_locations('wood', location_methods.get_info_sheet, location_methods.get_greeenwaste_recyclers, current_location, res);
 }
 
 
