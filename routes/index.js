@@ -57,5 +57,5 @@ exports.dconverter = function(req, res) {
   response_location = location_methods.get_locations(
     'metal',
     location_methods.get_info_sheet,
-    location_methods.get_greeenwaste_recyclers, loc, res)
+    location_methods.get_greeenwaste_recyclers, current_location, res)
 }
