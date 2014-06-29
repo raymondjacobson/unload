@@ -52,9 +52,9 @@
 		C92B7E14195F935A00C36277 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C92B7E1A195F935A00C36277 /* UnloadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnloadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92B7E1B195F935A00C36277 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C92B7E23195F935A00C36277 /* UnloadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnloadTests-Info.plist"; sourceTree = "<group>"; };
+		C92B7E23195F935A00C36277 /* UnloadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "UnloadTests-Info.plist"; path = "unload/UnloadTests-Info.plist"; sourceTree = "<group>"; };
 		C92B7E25195F935A00C36277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C92B7E27195F935A00C36277 /* UnloadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnloadTests.m; sourceTree = "<group>"; };
+		C92B7E27195F935A00C36277 /* UnloadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UnloadTests.m; path = unload/UnloadTests.m; sourceTree = "<group>"; };
 		C9F2DB33195F961300CDF27A /* Screen Shot 2014-06-28 at 5.09.24 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2014-06-28 at 5.09.24 PM.png"; path = "../../../../../Screen Shot 2014-06-28 at 5.09.24 PM.png"; sourceTree = "<group>"; };
 		C9F2DB35195F9DCD00CDF27A /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		C9F2DB36195F9DCD00CDF27A /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
@@ -127,7 +127,8 @@
 				C92B7E14195F935A00C36277 /* Images.xcassets */,
 				C92B7E03195F935A00C36277 /* Supporting Files */,
 			);
-			path = Unload;
+			name = Unload;
+			path = unload/Unload;
 			sourceTree = "<group>";
 		};
 		C92B7E03195F935A00C36277 /* Supporting Files */ = {
@@ -212,7 +213,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C92B7DF4195F935A00C36277 /* Build configuration list for PBXProject "Unload" */;
+			buildConfigurationList = C92B7DF4195F935A00C36277 /* Build configuration list for PBXProject "unload" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -306,6 +307,7 @@
 				C92B7E25195F935A00C36277 /* en */,
 			);
 			name = InfoPlist.strings;
+			path = unload;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -450,7 +452,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C92B7DF4195F935A00C36277 /* Build configuration list for PBXProject "Unload" */ = {
+		C92B7DF4195F935A00C36277 /* Build configuration list for PBXProject "unload" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C92B7E29195F935A00C36277 /* Debug */,
