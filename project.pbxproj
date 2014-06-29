@@ -43,7 +43,7 @@
 		C92B7E04195F935A00C36277 /* Unload-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unload-Info.plist"; sourceTree = "<group>"; };
 		C92B7E06195F935A00C36277 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C92B7E08195F935A00C36277 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C92B7E0A195F935A00C36277 /* Unload-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Unload-Prefix.pch"; sourceTree = "<group>"; };
+		C92B7E0A195F935A00C36277 /* Unload-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Unload-Prefix.pch"; path = "/Users/mdaum11/rivcode/unload/Unload/Unload-Prefix.pch"; sourceTree = "<absolute>"; };
 		C92B7E0B195F935A00C36277 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C92B7E0C195F935A00C36277 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C92B7E0F195F935A00C36277 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
