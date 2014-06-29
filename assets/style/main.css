@@ -41,7 +41,7 @@ header {
 }
 footer {
   height: 200px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
@@ -164,6 +164,20 @@ input[type=submit]:focus {
   border: 4px solid #f1cbe1;
   background: none;
 }
+.map-wrapper iframe {
+  height: 500px;
+  width: 100%;
+}
 #map {
   height: 500px;
+}
+.instr {
+  margin-top: 20px;
+  color: #bbb;
+}
+.instr div {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fdfdfd;
+  font-wize: 15px;
 }

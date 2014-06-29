@@ -6,6 +6,8 @@
     "express": "*",
     "jade": "*",
     "stylus": "*",
-    "nib": "*"
+    "nib": "*",
+    "unirest": "*",
+    "jquery": "*"
   }
 }
