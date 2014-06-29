@@ -13,26 +13,15 @@ exports.in_ios = function(req, res) {
 
 // route for incoming twilio msg service
 exports.in_twil = function(req, res) {
+  var current_location = [{
+    "latitude": "33.948769",
+     "longitude": "-117.380940"}]; 
 	console.log(req.body);
 	console.log(req.body['Body']);
-	var client = require('twilio')('ACec64a5b0feb7121fd6a33718d1fc4390', '0a4ecac03a0cb832a0cbfd221c329b20');
-    
-  // Use this convenient shorthand to send an SMS:
-	client.sendSms({
-		    to: req.body['From'],
-		    from:'+19513833688',
-		    body: req.body['Body']
-		}, function(error, message) {
-		    if (!error) {
-		        console.log('Success! The SID for this SMS message is:');
-		        console.log(message.sid);
-		        console.log('Message sent on:');
-		        console.log(message.dateCreated);
-		    } else {
-		        console.log('Oops! There was an error.');
-		    }
-		}
-	);
+  response_location = location_methods.get_locations(
+    'metal',
+    location_methods.get_info_sheet,
+    location_methods.get_greeenwaste_recyclers, current_location, req.body['From']);
 }
 
 
@@ -57,14 +46,16 @@ exports.gmaps = function(req, res) {
 // gets the incoming loc & item and returns closest loc
 exports.dconverter = function(req, res) {
   var loc = req.query['loc'];
+  console.log(loc);
   var item = req.query['item'];
   var item_type = item;
   console.log(item_type);
   var current_location = [{
     "latitude": "33.948769",
      "longitude": "-117.380940"}];  
+  console.log(current_location);
   response_location = location_methods.get_locations(
     'metal',
     location_methods.get_info_sheet,
-    location_methods.get_greeenwaste_recyclers, current_location, res)
+    location_methods.get_greeenwaste_recyclers, loc, res)
 }

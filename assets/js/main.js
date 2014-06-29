@@ -79,10 +79,9 @@ var createMap = function(long, lat){
               'longitude': long
             }];
             $.get('/dconverter?&item='+search_term+'&loc='+JSON.stringify(JSON_ORIGIN)).done(function(data){
-              console.log(data);
               $('iframe').remove();
               var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
-              var DESTINATION = '(34.1767, -118.3105)';
+              var DESTINATION = '('+data['location_1']['latitude']+','+data['location_1']['longitude']+')';
               var g_map_content = "https://www.google.com/maps/embed/v1/directions?key="+API_KEY+"&origin="+ORIGIN+"&destination="+DESTINATION;
               var iframe_string = "<iframe frameborder='0' style='border:0' src='"+g_map_content+"'></iframe>";
               $('.map-wrapper').remove();
