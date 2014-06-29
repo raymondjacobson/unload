@@ -86,8 +86,9 @@ var createMap = function(long, lat){
               var iframe_string = "<iframe frameborder='0' style='border:0' src='"+g_map_content+"'></iframe>";
               $('.loader').remove();
               $('.map-wrapper').append(iframe_string);
-              $('.map-wrapper').append('<div class="instr"><h1>Step-by-step to '+data['facility']+'</br>('+data['phone']+')</h1><ol></ol></div>');
-              $.get('/gmaps?origin='+ORIGIN+'&dest='+DESTINATION).done(function(data){
+              $('.map-wrapper').append('<div class="instr"><h1>Step-by-step to <a href="'+data['info_sheet'][0]['link_to_waste_fact_sheet']+'" target="_blank">'+data['facility']+'</a></br>('+data['phone']+')</h1><ol></ol></div>');
+              var gmap = '/gmaps?origin='+ORIGIN+'&dest='+DESTINATION;
+              $.get(gmap).done(function(data){
                 var steps = data.body['routes'][0]['legs'][0]['steps'];
                 for (var i=0; i<steps.length; ++i){
                   $('.instr ol').append("<li>"+steps[i]['html_instructions']+"</li>");
@@ -173,6 +174,11 @@ var constructDataObjs = function(facilitiesGraphicsLayer){
 }
 
 $(document).ready(function(){
+  $('body').keypress(function(event) {
+    if (event == 13){
+     $('input[type=submit]').click();    
+    }
+  });
   navigator.geolocation.getCurrentPosition(
     function(position) {
       createMap(position.coords.longitude,
