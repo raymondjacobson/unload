@@ -43,7 +43,6 @@ var createMap = function(long, lat){
         urlPrefix: "route.arcgis.com",  
         proxyUrl: "/proxy.ashx"
       });
-      // esriConfig.defaults.io.proxyUrl = "/proxy";
 
       arcgisUtils.createMap(webmap,"map").then(function(response){
         map = response.map;
@@ -72,23 +71,26 @@ var createMap = function(long, lat){
            // Handle logic for finding closest resource
           console.log('maploaded');
           $('input[type=submit]').click(function(){
-            $('iframe').remove();
-            var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
-            var ORIGIN = '(34.2767, -118.3105)';
-            ORIGIN = '(' + lat + ',' + long + ')';
-            var DESTINATION = '(34.1767, -118.3105)';
-            var g_map_content = "https://www.google.com/maps/embed/v1/directions?key="+API_KEY+"&origin="+ORIGIN+"&destination="+DESTINATION;
-            var iframe_string = "<iframe frameborder='0' style='border:0' src='"+g_map_content+"'></iframe>";
-            $('.map-wrapper').remove();
-            $('.container').append("<div class='row map-wrapper'></div>");
-            $('.map-wrapper').append(iframe_string);
-            $('.map-wrapper').append('<div class="instr"><h1>Step-by-step</h1></div>');
-            $.get('/gmaps?origin='+ORIGIN+'&dest='+DESTINATION).done(function(data){
-              var steps = data.body['routes'][0]['legs'][0]['steps'];
-              console.log(steps);
-              for (var i=0; i<steps.length; ++i){
-                $('.instr').append("<p>"+steps[i]['html_instructions']+"</p>");
-              }
+            var search_term = $('input[type=text').val();
+            console.log(search_term);
+            var ORIGIN = '(' + lat + ',' + long + ')';
+            $.get('/dconverter').done(function(data){
+              $('iframe').remove();
+              var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
+              var DESTINATION = '(34.1767, -118.3105)';
+              var g_map_content = "https://www.google.com/maps/embed/v1/directions?key="+API_KEY+"&origin="+ORIGIN+"&destination="+DESTINATION;
+              var iframe_string = "<iframe frameborder='0' style='border:0' src='"+g_map_content+"'></iframe>";
+              $('.map-wrapper').remove();
+              $('.container').append("<div class='row map-wrapper'></div>");
+              $('.map-wrapper').append(iframe_string);
+              $('.map-wrapper').append('<div class="instr"><h1>Step-by-step</h1></div>');
+              $.get('/gmaps?origin='+ORIGIN+'&dest='+DESTINATION).done(function(data){
+                var steps = data.body['routes'][0]['legs'][0]['steps'];
+                console.log(steps);
+                for (var i=0; i<steps.length; ++i){
+                  $('.instr').append("<p>"+steps[i]['html_instructions']+"</p>");
+                }
+              });
             });
           });
         }, 400);

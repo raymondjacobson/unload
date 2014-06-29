@@ -49,3 +49,10 @@ exports.gmaps = function(req, res) {
     res.send(data);
   });
 }
+
+// gets the incoming loc & item and returns closest loc
+exports.dconverter = function(req, res) {
+  var loc = req.query['loc'];
+  var item = req.query['item'];
+  console.log(loc, item);
+}
