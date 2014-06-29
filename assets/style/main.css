@@ -1,0 +1,169 @@
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+.cf {
+  *zoom: 1;
+}
+.cf:after {
+  clear: both;
+}
+.justify-align {
+  text-align: justify;
+}
+.pull-right {
+  float: right;
+}
+.pull-left {
+  float: left;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #456855;
+  font-family: 'Lato', Helvetica, sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+table {
+  text-align: left;
+  padding: 30px;
+  th: , td;
+  padding: 0 30px 0 30px;
+}
+header {
+  padding-top: 10px;
+  text-align: center;
+}
+footer {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  word-spacing: 3px;
+  font-weight: bold;
+}
+footer .copy {
+  letter-spacing: 1px;
+}
+footer .built small,
+footer .built a {
+  letter-spacing: 1px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+div.container {
+  margin-top: 100px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input {
+  color: #bbb;
+}
+h1 {
+  letter-spacing: 5px;
+  font-weight: 600;
+  font-size: 25px;
+  margin: 0px 0px 0px 0px;
+  text-transform: uppercase;
+}
+h2,
+label {
+  margin: 10px 0 40px 0;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+a {
+  font-weight: 400;
+  letter-spacing: 0px;
+  text-decoration: underline;
+  -webkit-transition: color 0.2s linear;
+  -moz-transition: color 0.2s linear;
+  -ms-transition: color 0.2s linear;
+  -o-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+a:hover {
+  color: #f1cbe1;
+}
+::-webkit-input-placeholder {
+  color: #bbb;
+}
+:-moz-placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+::-moz-placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  color: #bbb;
+}
+input:focus::-webkit-input-placeholder {
+  color: #f1cbe1;
+}
+input:focus:-moz-placeholder {
+  color: #f1cbe1;
+  opacity: 1;
+}
+input:focus::-moz-placeholder {
+  color: #f1cbe1;
+  opacity: 1;
+}
+input:focus:-ms-input-placeholder {
+  color: #f1cbe1;
+}
+.search {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 20px;
+  height: 80px;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+  font-size: 20px;
+  border: 4px solid #bbb;
+  background: none;
+  outline: none;
+}
+.search :focus {
+  background: none;
+  outline: none;
+}
+input[type=text] {
+  width: 75%;
+  margin-right: 2%;
+}
+input[type=text]:focus {
+  color: #f1cbe1;
+  border: 4px solid #f1cbe1;
+  background: none;
+}
+input[type=submit] {
+  width: 17%;
+  cursor: pointer;
+}
+input[type=submit]:hover,
+input[type=submit]:focus {
+  color: #f1cbe1;
+  border: 4px solid #f1cbe1;
+  background: none;
+}
+#map {
+  height: 500px;
+}

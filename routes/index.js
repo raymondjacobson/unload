@@ -10,3 +10,11 @@ exports.in_ios = function(req, res) {
 exports.in_twil = function(req, res) {
   res.send('in twil');
 }
+
+
+// web interface route
+exports.index = function(req, res) {
+  res.render('index', {
+    title: 'unload'
+  })
+}
