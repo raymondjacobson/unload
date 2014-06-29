@@ -46,18 +46,19 @@ var createMap = function(long, lat){
 
       arcgisUtils.createMap(webmap,"map").then(function(response){
         map = response.map;
+        var loader = $('.loader').remove();
         setTimeout(function(){
           moveMap(long, lat);
 
           // add facilities
           var facilityPointSymbol = new SimpleMarkerSymbol(
             SimpleMarkerSymbol.STYLE_SQUARE, 
-            20,
+            30,
             new SimpleLineSymbol(
               SimpleLineSymbol.STYLE_SOLID,
-              new Color([89,95,35]), 2
+              new Color([180, 64, 60]), 2
             ),
-            new Color([130,159,83,0.40])
+            new Color([180, 64, 60, 200])
           ); 
 
           var facilitiesGraphicsLayer = new GraphicsLayer();
@@ -71,23 +72,25 @@ var createMap = function(long, lat){
            // Handle logic for finding closest resource
           console.log('maploaded');
           $('input[type=submit]').click(function(){
+            $('iframe').remove();
+            $('.map-wrapper').remove();
+            $('.container').append("<div class='row map-wrapper'></div>");
+            $('.map-wrapper').append(loader);
             var search_term = $('input[type=text').val();
             console.log(search_term);
             var ORIGIN = '(' + lat + ',' + long + ')';
             $.get('/dconverter?&item='+search_term+'&lat='+lat+'&long='+long).done(function(data){
-              $('iframe').remove();
               var API_KEY = 'AIzaSyC9V_MOy-7Oakd7CXgmB33Xas0R31K0LUU';
               var DESTINATION = '('+data['location_1']['latitude']+','+data['location_1']['longitude']+')';
               var g_map_content = "https://www.google.com/maps/embed/v1/directions?key="+API_KEY+"&origin="+ORIGIN+"&destination="+DESTINATION;
               var iframe_string = "<iframe frameborder='0' style='border:0' src='"+g_map_content+"'></iframe>";
-              $('.map-wrapper').remove();
-              $('.container').append("<div class='row map-wrapper'></div>");
+              $('.loader').remove();
               $('.map-wrapper').append(iframe_string);
-              $('.map-wrapper').append('<div class="instr"><h1>Step-by-step</h1></div>');
+              $('.map-wrapper').append('<div class="instr"><h1>Step-by-step to '+data['facility']+'</br>('+data['phone']+')</h1><ol></ol></div>');
               $.get('/gmaps?origin='+ORIGIN+'&dest='+DESTINATION).done(function(data){
                 var steps = data.body['routes'][0]['legs'][0]['steps'];
                 for (var i=0; i<steps.length; ++i){
-                  $('.instr').append("<p>"+steps[i]['html_instructions']+"</p>");
+                  $('.instr ol').append("<li>"+steps[i]['html_instructions']+"</li>");
                 }
               });
             });
@@ -132,7 +135,7 @@ var moveMap = function(long, lat){
   require(["esri/geometry/Point",
     "esri/graphic"], function(Point, Graphic) {
     var point = new Point( {"x": long, "y": lat, "spatialReference": {"wkid": 4326 } });
-    var marker = makeMarker(12, [255, 255, 255, 128], long, lat);
+    var marker = makeMarker(10, [69, 104, 85, 200], long, lat);
     map.centerAt(point);
     map.graphics.add(new Graphic(marker));
   });
@@ -149,8 +152,8 @@ var addPoint = function(facilitiesGraphicsLayer, point){
 var addToMap = function(facilitiesGraphicsLayer, data){
   for(var i=0; i<data.length; ++i){
     point = {
-      'size': 12,
-      'color': [255, 180, 180, 128],
+      'size': 20,
+      'color': [180, 64, 60, 128],
       'long': data[i]['location_1']['longitude'],
       'lat': data[i]['location_1']['latitude']
     }
