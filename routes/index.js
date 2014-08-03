@@ -15,7 +15,7 @@ exports.in_ios = function(req, res) {
 exports.in_twil = function(req, res) {
  //  console.log(current_location);
 	// console.log(req.body);
-	// console.log(req.body['Body']);
+	console.log(req.body['Body']);
   language.breakup(req.body, twil_helper);
 }
 var twil_helper = function(from, item, current_location){
